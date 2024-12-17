@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-200;
+  }
+}
+
+*/
+
+@import "tom-select/dist/css/tom-select.css";
+
+/* Custom Tom Select styling */
+.ts-wrapper {
+  @apply bg-dark-700 rounded-md border-dark-600;
+}
+
+.ts-control {
+  @apply bg-transparent border-none text-white;
+}
+
+.ts-dropdown {
+  @apply bg-dark-800 border-dark-600 text-white;
+}
+
+.ts-dropdown .create {
+  @apply text-yellow-500;
+}
+
+.ts-dropdown .active {
+  @apply bg-dark-700;
+}
+
+@layer components {
+  .tonearm-transition {
+    @apply transition-transform duration-300 ease-in-out;
+  }
+
+  /* Hide the original select but keep it functional */
+  select[multiple] {
+    @apply hidden;
+  }
+
+  /* TomSelect custom styles */
+  .ts-wrapper.multi .ts-control {
+    @apply bg-dark-700 border-dark-600 p-2 flex flex-wrap gap-2;
+  }
+
+  .ts-wrapper.multi .ts-control > div {
+    @apply bg-yellow-600 text-white border-0 rounded-full px-3 py-1.5
+           text-sm font-medium shadow-sm transition-colors
+           hover:bg-yellow-700;
+  }
+
+  .ts-wrapper.multi .ts-control > div .remove {
+    @apply ml-2 text-yellow-200 hover:text-white
+           transition-colors duration-150 ease-in-out;
+  }
+
+  /* Record card tag styles */
+  .record-tag {
+    @apply inline-flex items-center bg-yellow-600 text-yellow-50
+           rounded-full px-3 py-1 text-sm font-medium
+           shadow-sm transition-all duration-150
+           hover:bg-yellow-700 hover:shadow-md;
+  }
+}

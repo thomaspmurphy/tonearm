@@ -1,0 +1,35 @@
+<% if releases.any? %>
+  <div class="divide-y divide-dark-700">
+    <% releases.each do |release| %>
+      <a href="#"
+         class="block p-4 hover:bg-dark-700 transition-colors duration-200 flex items-center space-x-4"
+         data-action="click->musicbrainz-search#selectRelease"
+         data-title="<%= release[:title] %>"
+         data-artist="<%= release[:artist] %>"
+         data-year="<%= release[:year] %>"
+         data-cover-url="<%= release[:cover_art_url] %>">
+
+        <% if release[:cover_art_url].present? %>
+          <img src="<%= release[:cover_art_url] %>"
+               class="w-16 h-16 object-cover rounded-lg shadow-lg"
+               alt="Album cover">
+        <% else %>
+          <div class="w-16 h-16 bg-dark-600 rounded-lg flex items-center justify-center">
+            <svg class="w-8 h-8 text-dark-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+            </svg>
+          </div>
+        <% end %>
+
+        <div class="flex-1 min-w-0">
+          <p class="text-white font-medium truncate"><%= release[:title] %></p>
+          <p class="text-gray-400 text-sm truncate"><%= release[:artist] %> • <%= release[:year] %></p>
+        </div>
+      </a>
+    <% end %>
+  </div>
+<% else %>
+  <div class="p-4 text-gray-400 text-center">
+    No results found
+  </div>
+<% end %>

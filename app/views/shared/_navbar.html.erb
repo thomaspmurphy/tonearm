@@ -1,0 +1,22 @@
+<nav class="bg-dark-800 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <div class="flex items-center gap-2">
+          <%= render(TonearmIconComponent.new(current_page: controller_name)) %>
+          <span class="text-lg font-bold">onearm</span>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <%= link_to "Records", records_path,
+                class: "#{controller_name == 'records' ? 'bg-dark-700' : 'hover:bg-dark-700'} px-3 py-2 rounded-md text-sm font-medium" %>
+            <%= link_to "Artists", artists_path,
+                class: "#{controller_name == 'artists' ? 'bg-dark-700' : 'hover:bg-dark-700'} px-3 py-2 rounded-md text-sm font-medium" %>
+            <%= link_to "Genres", genres_path,
+                class: "#{controller_name == 'genres' ? 'bg-dark-700' : 'hover:bg-dark-700'} px-3 py-2 rounded-md text-sm font-medium" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
