@@ -64,6 +64,6 @@ end
 
 gem "tailwindcss-rails", "~> 3.0"
 
-gem "ruby-lsp", "~> 0.22.1"
+gem "ruby-lsp", "~> 0.23.3"
 
 gem 'view_component'
